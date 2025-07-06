@@ -1,0 +1,179 @@
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: #f4f6f8; /* This will be a fallback if the image doesn't load */
+  color: #2c3e50;
+  padding: 20px;
+  line-height: 1.8;
+
+  /* --- Background Image Styles --- */
+  background-image: url('bg.png'); /* <--- IMPORTANT: Replace with your image filename */
+  background-size: cover; /* This makes the background image cover the entire element */
+  background-position: center center; /* Centers the image */
+  background-repeat: no-repeat; /* Prevents the image from repeating */
+  background-attachment: fixed; /* Makes the background fixed while scrolling */
+  
+  /* Add an overlay for better text readability */
+  position: relative; /* Needed for the pseudo-element overlay */
+  z-index: 1; /* Ensure body content is above the overlay */
+}
+
+/* --- Overlay for Readability --- */
+body::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.75); /* White overlay with 75% opacity */
+  z-index: -1; /* Place the overlay behind the content but above the background image */
+}
+
+/* Adjust colors of existing elements for better contrast if needed */
+nav ul {
+  /* You might want to make the nav background slightly transparent or keep it solid */
+  background-color: rgba(31, 41, 55, 0.9); /* Slightly transparent dark background */
+}
+
+.hero {
+  /* Ensure hero text remains highly readable */
+  background: linear-gradient(to right, rgba(99, 102, 241, 0.85), rgba(59, 130, 246, 0.85)); /* Slightly more opaque gradient for text readability over background */
+}
+
+/* Rest of your existing CSS */
+nav ul {
+  display: flex;
+  justify-content: center;
+  list-style: none;
+  /* background-color: #1f2937; - REMOVED, replaced with rgba above */
+  padding: 15px;
+  border-radius: 8px;
+  margin-bottom: 40px;
+  flex-wrap: wrap;
+}
+
+nav ul li {
+  margin: 10px;
+}
+
+nav ul li a {
+  color: #f9fafb;
+  text-decoration: none;
+  font-weight: 600;
+  transition: 0.3s;
+}
+
+nav ul li a:hover {
+  color: #facc15;
+}
+
+.hero {
+  text-align: center;
+  padding: 60px 20px;
+  /* background: linear-gradient(to right, #6366f1, #3b82f6); - REMOVED, replaced with rgba above */
+  color: white;
+  margin-bottom: 40px;
+  border-radius: 10px;
+}
+
+.btn {
+  display: inline-block;
+  background: #2563eb;
+  color: white;
+  padding: 10px 20px;
+  margin: 10px 5px;
+  text-decoration: none;
+  border-radius: 6px;
+  transition: 0.3s;
+}
+
+.btn:hover {
+  background: #1e40af;
+}
+
+.profile {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  margin-bottom: 40px;
+  flex-wrap: wrap;
+  position: relative; /* Ensure profile content is above the overlay */
+  z-index: 2;
+}
+
+.profile img {
+  border-radius: 50%;
+  border: 4px solid #1f2937;
+  width: 180px;
+  height: 180px;
+  object-fit: cover;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+h1 {
+  font-size: 2.5rem;
+  color: #111827;
+  margin-bottom: 5px;
+}
+
+h3 {
+  font-size: 1.5rem;
+  color: #1f2937;
+  margin-top: 40px;
+  margin-bottom: 10px;
+  border-left: 5px solid #facc15;
+  padding-left: 10px;
+}
+
+section {
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+  position: relative; /* Ensure section content is above the overlay */
+  z-index: 2;
+}
+
+ul {
+  padding-left: 20px;
+}
+
+ul li {
+  margin-bottom: 8px;
+}
+
+footer {
+  text-align: center;
+  padding: 20px;
+  background-color: #1f2937;
+  color: #f9fafb;
+  margin-top: 40px;
+  border-top: 4px solid #facc15;
+  position: relative; /* Ensure footer content is above the overlay */
+  z-index: 2;
+}
+
+@media (max-width: 768px) {
+  .profile {
+    flex-direction: column;
+    text-align: center;
+  }
+  .hero h1 {
+    font-size: 1.8rem;
+  }
+  .hero p {
+    font-size: 1rem;
+  }
+  nav ul {
+    flex-direction: column;
+    align-items: center;
+  }
+}
